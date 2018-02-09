@@ -16,6 +16,13 @@ app.use(require('express-session')(
 ));
 app.use(authMiddleware.initialize);
 
+// from cors on E xpress js to be able to deploy
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 const moviesRouter = require('./routes/movies');
 app.use('/movies',moviesRouter);
 app.use('/auth',require('./routes/auth'));

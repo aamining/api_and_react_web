@@ -47,7 +47,7 @@ class App extends Component {
 
             <div className = "container">
 
-              <Route path="/" render={() => (<div>Hello Kasumi!</div>)}/>
+              <Route path="/" render={() => (<div>Hello!</div>)}/>
                 <br/>
               <Route path="/movies/new" render={
                 () => (
