@@ -1,12 +1,15 @@
 //const app = require('./app');
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 const Movie = require('./models/movie');
 const Person = require('./models/person');
-//const router = express.Router();
 
-// const moviesRouter = require('./routes/movies');
-// app.use('/movies',moviesRouter);
+app.use(require('cookie-parser')());
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }));
+// parse application/json
+app.use(bodyParser.json());
 
 app.get('/movies', (req, res) => {
   Movie.find()
